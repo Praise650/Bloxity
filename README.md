@@ -1,4 +1,4 @@
-# bloxity
+# Bloxity
 
 A new Flutter project.
 
