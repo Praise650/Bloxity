@@ -3,7 +3,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:stacked/stacked.dart';
 
 import '../../layouts/base_scaffold.dart';
-import '../../widgets/custom_app_bar.dart';
 import 'tab_navigator.dart';
 import 'view_model/dashboard_view_model.dart';
 
@@ -40,9 +39,7 @@ class _DashBoardState extends State<DashBoard>
             return isFirstRouteInCurrentTab;
           },
           child: BaseScaffold(
-            isAppBar: CustomAppBar(
-              title: model.bottomNavItems[model.selectedIndex].label,
-            ),
+            isAppBar: null,
             body: Stack(
               children: List<Widget>.generate(
                 model.bottomNavItems.length,
