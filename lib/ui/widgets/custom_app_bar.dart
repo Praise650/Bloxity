@@ -58,7 +58,6 @@ import '../styles/texts.dart';
 // }
 
 class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
-  final String? titleText;
   final PreferredSizeWidget? bottom;
   final void Function()? customBackBtnAction;
   final IconData? icon;
@@ -69,7 +68,6 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
 
   const CustomAppBar({
     Key? key,
-    this.titleText,
     this.bottom,
     this.customBackBtnAction,
     this.icon,
