@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 import '../../layouts/base_scaffold.dart';
+import '../../layouts/base_scaffold_body.dart';
 import '../../widgets/custom_app_bar.dart';
+import '../../widgets/news/news_card_widget.dart';
 
 class News extends StatelessWidget {
   const News({Key? key}) : super(key: key);
@@ -10,7 +12,20 @@ class News extends StatelessWidget {
   Widget build(BuildContext context) {
     return BaseScaffold(
       isAppBar: const CustomAppBar(),
-      body: Container(),
+      body: BaseScaffoldBody(
+        padding: EdgeInsets.zero,
+        builder: (context, scrollController) {
+          return Column(
+            children: List.generate(
+              6,
+              (index) => const NewsCardWidget(
+                newTitle: 'Bloxity News',
+                newsSubtitle: 'Bloxity News',
+              ),
+            ),
+          );
+        },
+      ),
     );
   }
 }
