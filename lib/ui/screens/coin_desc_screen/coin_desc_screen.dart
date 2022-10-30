@@ -5,8 +5,9 @@ import '../../layouts/base_scaffold_body.dart';
 import '../../styles/style.dart';
 
 class CoinDescScreen extends StatelessWidget {
-  const CoinDescScreen({Key? key, this.title}) : super(key: key);
+  const CoinDescScreen({Key? key, this.title, this.price}) : super(key: key);
   final String? title;
+  final String? price;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class CoinDescScreen extends StatelessWidget {
             Column(
               children: [
                 Text(
-                  '$title Price',
+                  '$price Price',
                   style: kHeadline3TextStyle.copyWith(
                     color: AppColor.secondarySwatch[200],
                     fontWeight: FontWeight.w500,
