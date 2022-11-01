@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 import '../../../app/res/svgs.dart';
 import '../../../ui/screens/account/account.dart';
+import '../../../ui/screens/news/news.dart';
 import '../../../ui/screens/portfolio/portfolio_screen.dart';
 import '../../../ui/screens/market/market.dart';
 import '../../../ui/styles/colors.dart';
-import '../../ui/screens/news/news.dart';
 
 class BottomNavModel {
   final String label;
@@ -59,7 +59,7 @@ class BottomNavModel {
       icon: AppSvgs.navicon4,
       isSelected: false,
       activeColor: AppColor.primary,
-      screen: Account(),
+      screen: const Account(),
       navigatorKey: GlobalKey<NavigatorState>(),
     ),
   ];

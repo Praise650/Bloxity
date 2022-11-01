@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../screens/main_drawer/main_drawer.dart';
 import '../styles/colors.dart';
 import '../styles/texts.dart';
 
@@ -42,7 +43,7 @@ class BaseScaffold extends StatelessWidget {
       resizeToAvoidBottomInset: true,
       backgroundColor: backgroundColor ?? AppColor.scaffoldBgColor,
       appBar: isAppBar ?? getAppBar(),
-      drawer: const Drawer(),
+      drawer: const MainDrawer(),
       drawerEnableOpenDragGesture: false,
       body: body,
       floatingActionButton: floatingActionButton,

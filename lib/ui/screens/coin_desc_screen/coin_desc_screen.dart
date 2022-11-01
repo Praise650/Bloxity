@@ -7,7 +7,7 @@ import '../../styles/style.dart';
 class CoinDescScreen extends StatelessWidget {
   const CoinDescScreen({Key? key, this.title, this.price}) : super(key: key);
   final String? title;
-  final String? price;
+  final double? price;
 
   @override
   Widget build(BuildContext context) {
