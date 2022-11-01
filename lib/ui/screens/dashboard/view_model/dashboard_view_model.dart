@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
-import '../../../../core/dashboard/dashboard_ui_model.dart';
+import '../../../../core/models/dashboard/dashboard_ui_model.dart';
 
 class DashboardViewModel extends BaseViewModel{
   int selectedIndex = 0;

@@ -19,7 +19,9 @@ class CoinViewWidget extends ViewModelWidget<MarketViewModel> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const CoinDescScreen(),
+                builder: (context) =>  CoinDescScreen(
+                  price: model.cryptoCoinsList[index].coinValue,
+                ),
               ),
             );
           },

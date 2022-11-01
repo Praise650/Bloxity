@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:stacked/stacked.dart';
 
-import '../../layouts/base_scaffold.dart';
+import '../../styles/style.dart';
 import 'tab_navigator.dart';
 import 'view_model/dashboard_view_model.dart';
 
@@ -17,6 +17,7 @@ class _DashBoardState extends State<DashBoard>
     with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return ViewModelBuilder<DashboardViewModel>.reactive(
       viewModelBuilder: () => DashboardViewModel(),
       builder: (context, model, _) {
@@ -38,8 +39,10 @@ class _DashBoardState extends State<DashBoard>
             // let system handle back button if we're on the first route
             return isFirstRouteInCurrentTab;
           },
-          child: BaseScaffold(
-            isAppBar: null,
+          child: Scaffold(
+            resizeToAvoidBottomInset: true,
+            backgroundColor: AppColor.scaffoldBgColor,
+            drawerEnableOpenDragGesture: false,
             body: Stack(
               children: List<Widget>.generate(
                 model.bottomNavItems.length,
