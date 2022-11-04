@@ -1,38 +1,26 @@
 import 'package:flutter/material.dart';
 
-import '../../layouts/base_scaffold.dart';
-import '../../layouts/base_scaffold_body.dart';
-import '../../styles/style.dart';
+import '../portfolio/view_model/market_view_model.dart';
+import 'parts/market_desc_screen/market_desc_screen.dart';
+import 'parts/portfolio_desc_screen/portfolio_desc_screen.dart';
 
 class CoinDescScreen extends StatelessWidget {
-  const CoinDescScreen({Key? key, this.title, this.price}) : super(key: key);
+  const CoinDescScreen({Key? key, this.title, this.price, this.model})
+      : super(key: key);
   final String? title;
   final double? price;
+  final dynamic model;
 
   @override
   Widget build(BuildContext context) {
-    return BaseScaffold(
-      titleText: title,
-      showBackBtn: true,
-      body: BaseScaffoldBody(
-        builder: (context, childScrollController) => Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(height: 48),
-            Column(
-              children: [
-                Text(
-                  '$price Price',
-                  style: kHeadline3TextStyle.copyWith(
-                    color: AppColor.secondarySwatch[200],
-                    fontWeight: FontWeight.w500,
-                  ),
-                )
-              ],
-            )
-          ],
-        ),
-      ),
-    );
+    Widget getBody() {
+      if (model == PortfolioViewModel()) {
+        return PortfolioDescScreen(model: model);
+      } else {
+        return MarketDescScreen(model: model);
+      }
+    }
+
+    return getBody();
   }
 }

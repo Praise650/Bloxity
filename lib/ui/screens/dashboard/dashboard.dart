@@ -43,6 +43,7 @@ class _DashBoardState extends State<DashBoard>
             resizeToAvoidBottomInset: true,
             backgroundColor: AppColor.scaffoldBgColor,
             drawerEnableOpenDragGesture: false,
+            appBar: null,
             body: Stack(
               children: List<Widget>.generate(
                 model.bottomNavItems.length,
