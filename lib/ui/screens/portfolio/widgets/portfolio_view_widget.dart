@@ -3,7 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:stacked/stacked.dart';
 
 import '../../../styles/style.dart';
-import '../../coin_desc_screen/coin_desc_screen.dart';
+import '../../desc_screen/portfolio_desc_screen/portfolio_desc_screen.dart';
 import '../view_model/market_view_model.dart';
 
 class PortfolioViewWidget extends ViewModelWidget<PortfolioViewModel> {
@@ -14,12 +14,17 @@ class PortfolioViewWidget extends ViewModelWidget<PortfolioViewModel> {
     return Column(
       children: List.generate(
         model.cryptoCoinsList.length,
-            (index) => GestureDetector(
+        (index) => GestureDetector(
           onTap: () {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const CoinDescScreen(),
+                builder: (context) => PortfolioDescScreen(
+                  model: model,
+                  price: model.cryptoCoinsList[index].coinValue,
+                  rate: model.cryptoCoinsList[index].volatilityRate,
+                  title: model.cryptoCoinsList[index].shortName,
+                ),
               ),
             );
           },
@@ -76,7 +81,8 @@ class PortfolioViewWidget extends ViewModelWidget<PortfolioViewModel> {
                       ),
                       Text(
                         '+ ' +
-                            model.cryptoCoinsList[index].volatilityRate.toString(),
+                            model.cryptoCoinsList[index].volatilityRate
+                                .toString(),
                         style: kBodyText1TextStyle.copyWith(
                           fontSize: 12,
                           fontWeight: FontWeight.w500,

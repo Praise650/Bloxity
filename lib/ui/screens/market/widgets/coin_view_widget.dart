@@ -3,7 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:stacked/stacked.dart';
 
 import '../../../styles/style.dart';
-import '../../coin_desc_screen/coin_desc_screen.dart';
+import '../../desc_screen/market_desc_screen/market_desc_screen.dart';
 import '../view_model/market_view_model.dart';
 
 class CoinViewWidget extends ViewModelWidget<MarketViewModel> {
@@ -19,8 +19,10 @@ class CoinViewWidget extends ViewModelWidget<MarketViewModel> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) =>  CoinDescScreen(
+                builder: (context) => MarketDescScreen(
                   price: model.cryptoCoinsList[index].coinValue,
+                  model: model,
+                  title: model.cryptoCoinsList[index].coinName,
                 ),
               ),
             );
@@ -77,8 +79,9 @@ class CoinViewWidget extends ViewModelWidget<MarketViewModel> {
                         ),
                       ),
                       Text(
-                      '+ ' +
-                        model.cryptoCoinsList[index].volatilityRate.toString(),
+                        '+ ' +
+                            model.cryptoCoinsList[index].volatilityRate
+                                .toString(),
                         style: kBodyText1TextStyle.copyWith(
                           fontSize: 12,
                           fontWeight: FontWeight.w500,

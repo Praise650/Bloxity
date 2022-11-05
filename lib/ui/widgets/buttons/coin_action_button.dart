@@ -10,28 +10,31 @@ class CoinActionButton extends StatelessWidget {
 
   const CoinActionButton({
     Key? key,
-    required this.padding,
+    this.padding,
     required this.text,
-    this.color, this.onPressed,
+    this.color,
+    this.onPressed,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialButton(
-      onPressed: onPressed,
-      color: color ?? AppColor.secondaryGraphSwatch[500],
-      elevation: .5,
-      shape: RoundedRectangleBorder(
+    return Container(
+      decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(48),
+        color: color ?? AppColor.secondaryGraphSwatch[500],
       ),
-      padding: padding ?? const EdgeInsets.symmetric(vertical: 11),
-      enableFeedback: true,
-      child: Text(
-        text,
-        style: const TextStyle(
-          color: AppColor.secondaryAltBtnBg,
-          fontSize: 16,
-          fontWeight: FontWeight.w700,
+      child: MaterialButton(
+        onPressed: onPressed,
+        elevation: .5,
+        padding: padding ?? const EdgeInsets.symmetric(vertical: 11),
+        enableFeedback: true,
+        child: Text(
+          text,
+          style: const TextStyle(
+            color: AppColor.secondaryAltBtnBg,
+            fontSize: 16,
+            fontWeight: FontWeight.w700,
+          ),
         ),
       ),
     );
