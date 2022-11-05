@@ -2,10 +2,11 @@ import 'package:bloxity/ui/widgets/graph.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
-import '../../../../layouts/base_scaffold.dart';
-import '../../../../layouts/base_scaffold_body.dart';
-import '../../../../styles/style.dart';
-import '../../../portfolio/view_model/market_view_model.dart';
+import '../../../layouts/base_scaffold.dart';
+import '../../../layouts/base_scaffold_body.dart';
+import '../../../styles/style.dart';
+import '../../../widgets/buttons/coin_action_button.dart';
+import '../../portfolio/view_model/market_view_model.dart';
 import 'view_model/portfolio_desc_screen_view_model.dart';
 
 class PortfolioDescScreen extends StatelessWidget {
@@ -41,7 +42,7 @@ class PortfolioDescScreen extends StatelessWidget {
           ],
           body: BaseScaffoldBody(
             builder: (context, childScrollController) => Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const SizedBox(height: 45),
                 Column(
@@ -49,16 +50,17 @@ class PortfolioDescScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      '$price Price',
+                      // '$price',
+                      'N8,692,630.22',
                       style: kHeadline3TextStyle.copyWith(
-                        color: AppColor.secondarySwatch[200],
+                        color: AppColor.primarySwatch[500],
                         fontWeight: FontWeight.w500,
                       ),
                     ),
                     Text(
-                      '$rate Price',
+                      '$rate',
                       style: kHeadline3TextStyle.copyWith(
-                        color: AppColor.secondarySwatch[200],
+                        color: const Color(0xff00DB8C),
                         fontWeight: FontWeight.w500,
                       ),
                     )
@@ -69,6 +71,7 @@ class PortfolioDescScreen extends StatelessWidget {
                   width: MediaQuery.of(context).size.width,
                   decoration: const BoxDecoration(),
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: List.generate(
                       model.components.length,
                       (index) => Text(
@@ -79,9 +82,27 @@ class PortfolioDescScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 12),
                 GraphWidget(
-                  height: 200,
+                  height: MediaQuery.of(context).size.height*.3,
                   width: MediaQuery.of(context).size.width,
                 ),
+                const SizedBox(height: 25),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: const [
+                    CoinActionButton(
+                      color: Color(0xffEA4F18),
+                      text: 'Buy',
+                    ),
+                    CoinActionButton(
+                      color: AppColor.textPrimary,
+                      text: 'Swap',
+                    ),
+                    CoinActionButton(
+                      color: Color(0xff00DB8C),
+                      text: 'Sell',
+                    )
+                  ],
+                )
               ],
             ),
           ),
