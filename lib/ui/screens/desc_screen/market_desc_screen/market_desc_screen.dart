@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../layouts/base_scaffold.dart';
 import '../../../layouts/base_scaffold_body.dart';
 import '../../../styles/style.dart';
+import '../../../widgets/buttons/circular_button.dart';
 import '../../../widgets/graph.dart';
 import '../../market/view_model/market_view_model.dart';
 
@@ -82,6 +83,36 @@ class MarketDescScreen extends StatelessWidget {
               height: MediaQuery.of(context).size.height * .3,
               width: MediaQuery.of(context).size.width,
             ),
+            const SizedBox(height: 30),
+            Row(
+              children: [
+                CircularButton(onPressed: () {}),
+                CircularButton(
+                  onPressed: () {},
+                  text: 'Buy',
+                ),
+                CircularButton(
+                  onPressed: (){},
+                  icon: Icons.sell,
+                  text: 'Sell',
+                ),
+                CircularButton(
+                  onPressed: (){},
+                  icon: Icons.refresh,
+                  text: 'Send',
+                ),
+                CircularButton(
+                  onPressed: (){},
+                  icon: Icons.refresh,
+                  text: 'Convert',
+                ),
+                CircularButton(
+                  onPressed: (){},
+                  icon: Icons.file_download_sharp,
+                  text: 'Receive',
+                ),
+              ],
+            )
           ],
         ),
       ),
